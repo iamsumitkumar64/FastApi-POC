@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 import uvicorn
-from config.envConfig import envConfig
+from .config.envConfig import envConfig
 from .appRouter import appRouter
 
 app = FastAPI()
@@ -13,7 +13,7 @@ app.include_router(appRouter)
 
 if __name__ == "__main__":
     uvicorn.run(
-        "main:app",
+        "src.main:app",
         host=envConfig.HOSTNAME,
         port=envConfig.PORT,
         reload=True
